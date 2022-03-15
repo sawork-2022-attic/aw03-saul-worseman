@@ -14,6 +14,22 @@ public class Cart {
         return items.add(item);
     }
 
+    public boolean deleteItem(String productId){
+        for(var it: items)
+            if(it.getProduct().getId().equals(productId)) {
+                items.remove(it);
+                return true;
+            }
+        return false;
+    }
+
+    public Item getItem(String productId){
+        for(var it: items)
+            if(it.getProduct().getId().equals(productId)) {
+                return it;
+            }
+        return null;
+    }
     @Override
     public String toString() {
         if (items.size() ==0){
